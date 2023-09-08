@@ -15,17 +15,21 @@ void main() {
          backgroundColor: Colors.lightGreen[600],
        ),
        body: Center(
-
-           child: Image(
-             image: AssetImage('assets/Screenshot (1).png'),
-             )
+         child: IconButton(
+           onPressed: (){
+             print('You clicked');
+           },
+            icon: Icon(
+              Icons.accessibility_sharp
+            ),
+         ),
 
        ),
 
 
        floatingActionButton: FloatingActionButton(
          onPressed: () {  },
-         child: Text("Click Me"),
+         child: Text("Click"),
          backgroundColor: Colors.lightGreen[600],
        ),
      );
