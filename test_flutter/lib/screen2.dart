@@ -9,9 +9,22 @@ class Screen2 extends StatelessWidget {
       appBar: AppBar(
         title: Text("Screen 2"),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        child: Text("Hello"),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text("Hello World"),
+          FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: Colors.blueGrey,
+            child: Text("Hey"),
+          ),
+          Container(
+            color: Colors.amber,
+            padding: EdgeInsets.all(30.0),
+            child: Text("inside container"),
+          )
+        ],
       ),
     );
   }
