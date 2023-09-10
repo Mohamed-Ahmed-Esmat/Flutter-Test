@@ -9,6 +9,10 @@ class Screen2 extends StatelessWidget {
       appBar: AppBar(
         title: Text("Screen 2"),
       ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        child: Text("Hello"),
+      ),
     );
   }
 }
