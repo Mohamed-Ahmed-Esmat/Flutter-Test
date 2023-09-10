@@ -10,20 +10,30 @@ class Screen2 extends StatelessWidget {
         title: Text("Screen 2"),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: Row(
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text("Hello World"),
-            FloatingActionButton(
-              onPressed: () {},
-              backgroundColor: Colors.blueGrey,
-              child: Text("Hey"),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(30.0),
+                color: Colors.cyan,
+                child: Text("1"),
+              ),
             ),
-            Container(
-              color: Colors.amber,
-              padding: EdgeInsets.all(30.0),
-              child: Text("inside container"),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(30.0),
+                color: Colors.blue,
+                child: Text("2"),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(30.0),
+                color: Colors.orange,
+                child: Text("3"),
+              ),
             )
           ],
         ),
