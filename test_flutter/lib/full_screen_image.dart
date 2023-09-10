@@ -9,6 +9,10 @@ class FullScreenImage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Full Screen Image"),
       ),
+      body: Image.asset(
+        'assets/Screenshot (1).png',
+        fit: BoxFit.contain,
+      ),
     );
   }
 }
