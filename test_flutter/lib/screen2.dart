@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test_flutter/screen3.dart';
+import 'package:test_flutter/quiz_screen.dart';
 
 class Screen2 extends StatelessWidget {
   const Screen2({super.key});
@@ -42,7 +42,7 @@ class Screen2 extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.to(Screen3());
+          Get.to(QuizScreen());
         },
         child: Text("Next"),
         backgroundColor: Colors.lightGreen[600],
