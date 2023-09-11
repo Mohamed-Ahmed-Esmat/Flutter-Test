@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class QuizScreen extends StatefulWidget {
   const QuizScreen({super.key});
@@ -14,9 +15,21 @@ class _QuizScreenState extends State<QuizScreen> {
   final cont = TextEditingController();
   var question = '';
   var answer = '';
+  var lastScore = 0;
   var index = 0;
   var score = 0;
   var quizStarted = false;
+  var scoreList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    final box = GetStorage();
+    lastScore = box.read("score");
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +45,13 @@ class _QuizScreenState extends State<QuizScreen> {
           TextField(
             controller: cont,
             enabled: quizStarted,
+            decoration: const InputDecoration(
+              hintText: 'Enter your answer here',
+              hintStyle: TextStyle(
+                color: Colors.grey, // Customize the color of the hint text
+                fontSize: 16, // Customize the font size of the hint text
+              ),
+            ),
           ),
           SizedBox(
             height: 20,
@@ -66,6 +86,9 @@ class _QuizScreenState extends State<QuizScreen> {
                           Get.snackbar("Score", "Score = $score",
                               snackPosition: SnackPosition.BOTTOM);
                           quizStarted = false;
+                          scoreList.add(score);
+                          final box = GetStorage();
+                          box.write('score', score);
                           setState(() {});
                         }
                         cont.clear();
@@ -75,7 +98,24 @@ class _QuizScreenState extends State<QuizScreen> {
                 textColor: Colors.white,
               ),
             ],
-          )
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (a, b) {
+                return ListTile(
+                  leading: Text("Turn ${b + 1}"),
+                  trailing: Text("${scoreList[b]}"),
+                );
+              },
+              itemCount: scoreList.length,
+            ),
+          ),
+          Spacer(),
+          if (lastScore != -1)
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Your last score is $lastScore'),
+            )
         ],
       ),
     );

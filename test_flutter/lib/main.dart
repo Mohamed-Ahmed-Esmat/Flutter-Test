@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test_flutter/screen2.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:test_flutter/quiz_screen.dart';
 
-void main() {
+Future<void> main() async {
+  GetStorage.init();
   runApp(Home());
 }
 
@@ -11,7 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Screen2(),
+      home: QuizScreen(),
     );
   }
 }
