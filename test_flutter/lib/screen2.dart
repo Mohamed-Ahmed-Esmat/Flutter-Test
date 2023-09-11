@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_flutter/screen3.dart';
 
 class Screen2 extends StatelessWidget {
   const Screen2({super.key});
@@ -7,7 +9,7 @@ class Screen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Screen 2"),
+        title: Center(child: Text("Screen 2")),
       ),
       body: Center(
         child: Row(
@@ -37,6 +39,13 @@ class Screen2 extends StatelessWidget {
             )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.to(Screen3());
+        },
+        child: Text("Next"),
+        backgroundColor: Colors.lightGreen[600],
       ),
     );
   }
