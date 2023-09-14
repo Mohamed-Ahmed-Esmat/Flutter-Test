@@ -40,6 +40,8 @@ dependencies:
   geolocator: ^10.0.1
   url_launcher: ^6.1.14
   geocoding: any
+  dropdown_search: ^5.0.6
+  flutter_typeahead: ^4.7.0
 
 
 

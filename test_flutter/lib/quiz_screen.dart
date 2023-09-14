@@ -111,11 +111,10 @@ class _QuizScreenState extends State<QuizScreen> {
             ),
           ),
           Spacer(),
-          if (lastScore != -1)
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text('Your last score is $lastScore'),
-            )
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Your last score is $lastScore'),
+          )
         ],
       ),
     );
