@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:test_flutter/screen5.dart';
+import 'package:test_flutter/id_card.dart';
 
 Future<void> main() async {
   GetStorage.init();
@@ -13,7 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Screen5(),
+      home: IDCard(),
     );
   }
 }
