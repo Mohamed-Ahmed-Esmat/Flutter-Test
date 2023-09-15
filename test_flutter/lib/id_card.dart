@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
-class IDCard extends StatelessWidget {
+class IDCard extends StatefulWidget {
   const IDCard({super.key});
 
+  @override
+  State<IDCard> createState() => _IDCardState();
+}
+
+class _IDCardState extends State<IDCard> {
+  var age = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,6 +18,14 @@ class IDCard extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.amber[900],
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          age++;
+          setState(() {});
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[800],
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -61,7 +75,7 @@ class IDCard extends StatelessWidget {
               height: 15.0,
             ),
             Text(
-              "19",
+              "$age",
               style: TextStyle(
                 color: Colors.green[800],
                 letterSpacing: 2.0,
