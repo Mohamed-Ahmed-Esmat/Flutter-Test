@@ -22,7 +22,7 @@ class _QuotesState extends State<Quotes> {
             "Success is not final, failure is not fatal: it is the courage to continue that counts.",
         author: "Emad")
   ];
-  Widget quoteTemplate(quote) {
+  Widget quoteTemplate(quote, delete) {
     return Card(
       margin: EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 0),
       child: Padding(
@@ -45,6 +45,13 @@ class _QuotesState extends State<Quotes> {
                 color: Colors.grey[800],
               ),
             ),
+            SizedBox(
+              height: 8.0,
+            ),
+            MaterialButton(
+              onPressed: delete,
+              child: Icon(Icons.delete),
+            )
           ],
         ),
       ),
@@ -60,7 +67,16 @@ class _QuotesState extends State<Quotes> {
         backgroundColor: Colors.lightGreen,
       ),
       body: Column(
-        children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+        children: quotes
+            .map((quote) => quoteTemplate(
+                  quote,
+                  () {
+                    setState(() {
+                      quotes.remove(quote);
+                    });
+                  },
+                ))
+            .toList(),
       ),
     );
   }
